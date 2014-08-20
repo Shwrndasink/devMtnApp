@@ -8,26 +8,18 @@
  *
  * Main module of the application.
  */
-angular
-  .module('devMtnAppApp', [
-    'ngAnimate',
-    'ngCookies',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ngTouch'
-  ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
+angular.module('devMtnAppApp', ['firebase', 'ui.router']).config(function ($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise('/');
+
+    $stateProvider
+      .state('/main', {
+        url: '/',
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
-      .when('/about', {
+      .state('about', {
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
-      .otherwise({
-        redirectTo: '/'
-      });
+      
   });

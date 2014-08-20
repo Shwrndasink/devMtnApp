@@ -1,7 +1,10 @@
 {
   "name": "devmtnapp",
   "version": "0.0.1",
-  "dependencies": {},
+  "dependencies": {
+    "angular-ui-router": "^0.2.10",
+    "firebase": "^1.0.19"
+  },
   "devDependencies": {
     "grunt": "^0.4.1",
     "grunt-autoprefixer": "^0.7.3",
