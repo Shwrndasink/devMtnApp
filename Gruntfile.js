@@ -197,6 +197,11 @@ module.exports = function (grunt) {
           generatedImagesDir: '<%= yeoman.dist %>/images/generated'
         }
       },
+      watch: {
+        options: {
+          watch: true
+        }
+      },
       server: {
         options: {
           debugInfo: true

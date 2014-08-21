@@ -9,13 +9,20 @@
  * Main module of the application.
  */
 angular.module('devMtnAppApp', ['firebase', 'ui.router']).config(function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/login');
 
     $stateProvider
-      .state('/main', {
-        url: '/',
+    .state('login', {
+      url: '/login',
+      templateUrl: '/views/login.html',
+      controller: 'LoginCtrl'
+    })
+
+    $stateProvider
+      .state('main', {
+        url: '/main',
         templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        controller: 'PeopleCtrl'
       })
       .state('about', {
         templateUrl: 'views/about.html',
