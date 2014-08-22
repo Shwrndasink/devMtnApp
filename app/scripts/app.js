@@ -17,16 +17,31 @@ angular.module('devMtnAppApp', ['firebase', 'ui.router']).config(function ($stat
       templateUrl: '/views/login.html',
       controller: 'LoginCtrl'
     })
+    .state('signup', {
+      url: '/signup',
+      templateUrl: 'views/signup.html',
+      controller: 'SigunpCtrl'
+    })
 
-    $stateProvider
+    .state('secure', {
+      abstract: true,
+      template: '<div ui-view>',
+      controller: 'SecureCtrl',
+      resolve: {
+        username: function (EnvironmentService){
+          return EnvironmentService.getUserName();
+        }
+      }
+    })
       .state('main', {
         url: '/main',
         templateUrl: 'views/main.html',
         controller: 'PeopleCtrl'
       })
-      .state('about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
+      .state('profile', {
+        url: '/profile',
+        templateUrl: 'views/profile.html',
+        controller: 'ProfileCtrl',
       })
       
   });
