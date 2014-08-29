@@ -20,7 +20,7 @@ angular.module('devMtnAppApp', ['firebase', 'ui.router']).config(function ($stat
     .state('signup', {
       url: '/signup',
       templateUrl: 'views/signup.html',
-      controller: 'SigunpCtrl'
+      controller: 'SignupCtrl'
     })
 
     .state('secure', {

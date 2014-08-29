@@ -5,13 +5,13 @@
   <div class="form-group">
     <label for="inputName" class="control-label pull-left">Email</label>
     <div class="">
-      <input type="email" class="form-control" id="inputName" placeholder="Email">
+      <input type="email" class="form-control" id="inputName" placeholder="Email" ng-model="email">
     </div>
   </div>
   <div class="form-group">
     <label for="inputPassword" class="control-label pull-left">Password</label>
     <div class="">
-      <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+      <input type="password" class="form-control" id="inputPassword" placeholder="Password" ng-model="password">
     </div>
   </div>
   <div class="form-group">
@@ -25,14 +25,14 @@
   </div>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-success pull-right">Sign in</button>
+      <button type="submit" class="btn btn-success pull-right" ng-click="login()">Sign in</button>
     </div>
   </div>
 </form>
 
 <div class="signup-wrapper">
   <p class="pull-left">Not enrolled yet?</p>
-  <button class="btn btn-success btn-block">Sign Up</button>
+  <button class="btn btn-success btn-block" ui-sref="signup">Sign Up</button>
 </div>
 
 </div>
