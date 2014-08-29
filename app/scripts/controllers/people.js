@@ -8,7 +8,7 @@
  * Controller of the devMtnAppApp
  */
 angular.module('devMtnAppApp')
-  .controller('PeopleCtrl', function ($scope) {
+  .controller('PeopleCtrl', function ($scope, $firebase) {
 
     var myRef = new Firebase("https://devmtnapp.firebaseio.com/");
     var authClient = new FirebaseSimpleLogin(myRef, function(error, user) {
@@ -22,31 +22,8 @@ angular.module('devMtnAppApp')
         // user is logged out
       }
     });
-    $scope.people = [
-      {
-      	name: 'Marc',
-      	age: 31,
-      	occupation: 'beggar'
-      },
-      {
-      	name: 'Taylor',
-      	age: 22,
-      	occupation: 'Drug-Dealer'
-      },
-      {
-      	name: 'Taylor',
-      	age: 22,
-      	occupation: 'Drug-Dealer'
-      },
-      {
-      	name: 'Taylor',
-      	age: 22,
-      	occupation: 'Drug-Dealer'
-      },
-      {
-      	name: 'Taylor',
-      	age: 22,
-      	occupation: 'Drug-Dealer'
-      }
-    ];
+
+    var usersRef = $firebase(new Firebase("https://devmtnapp.firebaseio.com/users"));
+
+    $scope.users = usersRef.$asArray();
   });
