@@ -11,9 +11,15 @@ angular.module('devMtnAppApp')
   .controller('SignupCtrl', ["$rootScope", "$scope", "$firebase", "$firebaseSimpleLogin", "$state", function($rootScope, $scope, $firebase, $firebaseSimpleLogin, $state) {
     var ref = new Firebase("https://devmtnapp.firebaseio.com/");
     $scope.user = {
-    	email: Math.random() * 10000 + '@email.com'
+    	email: Math.random() * 10000 + '@email.com',
+    	username: 'this',
+    	occupation: 'job',
+    	skills: 'none',
+    	github: 'n/a'
+
     };
     $scope.password = 'this';
+
 
      // create an AngularFire reference to the data
     var sync = $firebase(ref);
@@ -27,6 +33,11 @@ angular.module('devMtnAppApp')
 				var userObject = $firebase(new Firebase("https://devmtnapp.firebaseio.com/users/" + user.id)).$asObject();
 				
 				userObject.email = newUser.email;
+				userObject.username = newUser.username;
+				userObject.occupation = newUser.occupation;
+				userObject.skills = newUser.skills;
+				userObject.github = newUser.github;
+
 				userObject.$save().then(function () {
 					$scope.authClient.$login("password", {
 					   email: newUser.email,
