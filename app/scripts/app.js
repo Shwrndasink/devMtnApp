@@ -17,6 +17,16 @@ angular.module('devMtnAppApp', ['firebase', 'ui.router']).config(function ($stat
       templateUrl: '/views/login.html',
       controller: 'LoginCtrl'
     })
+    .state('logout', {
+      url: '/logout',
+      controller: function($rootScope, $state, $firebase, $firebaseSimpleLogin, $scope) {
+        var ref = new Firebase("https://devmtnapp.firebaseio.com/");
+        $rootScope.authClient = $firebaseSimpleLogin(ref);
+        $scope.authClient.$logout();
+        $rootScope.loggedIn = false;
+        $state.transitionTo('login');
+      }
+    })
     .state('signup', {
       url: '/signup',
       templateUrl: 'views/signup.html',
@@ -33,15 +43,15 @@ angular.module('devMtnAppApp', ['firebase', 'ui.router']).config(function ($stat
         }
       }
     })
-      .state('main', {
+      .state('secure.main', {
         url: '/main',
         templateUrl: 'views/main.html',
         controller: 'PeopleCtrl'
       })
-      .state('profile', {
+      .state('secure.profile', {
         url: '/profile',
         templateUrl: 'views/profile.html',
-        controller: 'ProfileCtrl',
+        controller: 'ProfileCtrl'
       })
       
   });

@@ -8,7 +8,7 @@
  * Service in the devMtnAppApp.
  */
 angular.module('devMtnAppApp')
-  .service('environmentService', function environmentService($window) {
+  .service('EnvironmentService', function EnvironmentService($window) {
     // AngularJS will instantiate a singleton by calling "new" on this function
     return {
       getEnv: function () {

@@ -8,14 +8,14 @@
  * Controller of the devMtnAppApp
  */
 angular.module('devMtnAppApp')
-  .controller('SignupCtrl', ["$rootScope", "$scope", "$firebase", "$firebaseSimpleLogin", "$state", function($rootScope, $scope, $firebase, $firebaseSimpleLogin, $state) {
+  .controller('SignupCtrl', function($rootScope, $scope, $firebase, $firebaseSimpleLogin, $state) {
     var ref = new Firebase("https://devmtnapp.firebaseio.com/");
     $scope.user = {
     	email: Math.random() * 10000 + '@email.com',
     	username: 'this',
     	occupation: 'job',
     	skills: 'none',
-    	github: 'n/a'
+    	github: 'n/a',
 
     };
     $scope.password = 'this';
@@ -31,20 +31,23 @@ angular.module('devMtnAppApp')
 		$scope.authClient.$createUser(newUser.email, password)
 			.then(function(user) {
 				var userObject = $firebase(new Firebase("https://devmtnapp.firebaseio.com/users/" + user.id)).$asObject();
-				
+
 				userObject.email = newUser.email;
 				userObject.username = newUser.username;
 				userObject.occupation = newUser.occupation;
 				userObject.skills = newUser.skills;
 				userObject.github = newUser.github;
+				
 
 				userObject.$save().then(function () {
 					$scope.authClient.$login("password", {
 					   email: newUser.email,
 					   password: password
 					}).then(function(user) {
+						$rootScope.loggedIn = true;
 					   console.log("Logged in as: ", user.uid);
-					   $state.go('main');
+					   $state.transitionTo('secure.main');
+					   $scope.loggedIn = true;
 					}, function(error) {
 					   console.error("Login failed: ", error);
 					});
@@ -58,4 +61,6 @@ angular.module('devMtnAppApp')
 			})
     }
 
- }]);
+    // $scope.authClient.logout();
+
+ });

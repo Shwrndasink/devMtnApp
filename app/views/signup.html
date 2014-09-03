@@ -1,45 +1,56 @@
-<div ng-controller="SignupCtrl">
-	<div class="row">
+<div>
+
 		<div class="signup-wrapper">
-			<h5>Welcome to the application. Please enter these few fields of information to register</h5>
+				<h4 class="text-center" style="margin-bottom:20px;">Welcome to the application. Please enter these few fields of information to register</h4>
 			<form class="form-horizontal" role="form">
-				<div class="form-group">
-					<label for="inputName" class="control-label pull-left">Email</label>
-					<div class="">
-						<input type="email" class="form-control" id="inputName" placeholder="" ng-model="user.email">
+				<div class="row">
+					<div class="form-group col-xs-12 col-sm-12 col-md-6 large-padding">
+						<label for="inputName" class="control-label pull-left">Email</label>
+						<div class="">
+							<input type="email" class="form-control" id="inputName" placeholder="" ng-model="user.email">
+						</div>
+					</div>
+					<div class="form-group col-xs-12 col-sm-12 col-md-6 large-padding">
+						<label for="inputPassword" class="control-label pull-left">Password</label>
+						<div class="">
+							<input type="password" class="form-control" id="inputPassword" placeholder="" ng-model="password">
+						</div>
 					</div>
 				</div>
-				<div class="form-group">
-					<label for="inputPassword" class="control-label pull-left">Password</label>
-					<div class="">
-						<input type="password" class="form-control" id="inputPassword" placeholder="" ng-model="password">
-					</div>
-				</div>
-				<div class="form-group">
+
+				<div class="row">
+				<div class="form-group col-xs-12 col-sm-12 col-md-6 large-padding">
 					<label for="inputUsername" class="control-label pull-left"> Username</label>
 					<div class="">
 						<input type="username" class="form-control" id="inputUsername" placeholder="" ng-model="user.username">
 					</div>
 				</div>
-				<div class="form-group">
+				<div class="form-group col-xs-12 col-sm-12 col-md-6 large-padding">
 					<label for="inputOccupation" class="control-label pull-left">Occupation</label>
 					<div class="">
 						<input type="text" class="form-control" id="inputOccupation" placeholder="" ng-model="user.occupation">
 					</div>
 				</div>
-				<div class="form-group">
+				</div>
+
+				<div class="row">
+				<div class="form-group col-xs-12 col-sm-12 col-md-6 large-padding">
 					<label for="inputSkills" class="control-label pull-left">Your Skills</label>
 					<div class="">
-						<textarea type="text" class="form-control" id="inputSkills" placeholder="" ng-model="user.skills"></textarea>
+						<input type="text" class="form-control" id="inputSkills" placeholder="" ng-model="user.skills">
 					</div>
 				</div>
-				<div class="form-group">
+				<div class="form-group col-xs-12 col-sm-12 col-md-6 large-padding">
 					<label for="inputGitHub" class="control-label pull-left">Url of your GitHub account</label>
 					<div class="">
 						<input type="text" class="form-control" id="inputGitHub" placeholder="" ng-model="user.github">
 					</div>
 				</div>
-				
+				</div>
+				<div flow-init flow-name="user.flow">
+					<input type="file" flow-btn />
+				</div>
+
 
 				<div class="form-group">
 					<div class="col-sm-12">
@@ -48,5 +59,4 @@
 				</div>
 			</form>
 		</div>
-	</div>
 </div>

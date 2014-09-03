@@ -15,17 +15,18 @@ angular.module('devMtnAppApp')
     var sync = $firebase(ref);
 
     $rootScope.authClient = $firebaseSimpleLogin(ref);
-    $scope.login = function(){	
-    debugger;	
-				$scope.authClient.$login("password", {
-				   email: $scope.email,
-				   password: $scope.password
-				}).then(function(user) {
-				   console.log("Logged in as: ", user.uid);
-				   $state.go('main');
-				}, function(error) {
-				   console.error("Login failed: ", error);
-				});
-		    }
+    
+    $scope.login = function() {	
+		$scope.authClient.$login("password", {
+		   email: $scope.email,
+		   password: $scope.password
+		}).then(function(user) {
+		   console.log("Logged in as: ", user.uid);
+		   $rootScope.loggedIn = true;
+		   $state.transitionTo('secure.main');
+		}, function(error) {
+		   console.error("Login failed: ", error);
+		});
+    };
 
   }]);

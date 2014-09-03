@@ -8,6 +8,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 $primary-color: #ededed;
 $secondary-color:#bcbcbc;
 $border-radius:5px;
+$large-padding:0px 40px;
 
 
 body {
@@ -20,6 +21,19 @@ header {
   height:60px;
   box-shadow:1px 1px 1px rgba(25, 25, 25, 0.1);
 }
+
+.logout-button {
+  margin-top:20px;
+}
+
+.btn {
+  border-radius:0px;
+}
+
+.large-padding {
+  padding:$large-padding;
+}
+
 
 
 /* Login Styles */
@@ -36,7 +50,6 @@ header {
 
 .signup-wrapper {
   position:relative;
-  max-width:400px;
   padding-bottom:25px;
   margin:60px auto;
   padding:40px;
