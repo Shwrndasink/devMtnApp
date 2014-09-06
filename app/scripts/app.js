@@ -8,7 +8,7 @@
  *
  * Main module of the application.
  */
-angular.module('devMtnAppApp', ['firebase', 'ui.router']).config(function ($stateProvider, $urlRouterProvider) {
+angular.module('devMtnAppApp', ['firebase', 'ui.router', 'angularFileUpload', 'cloudinary']).config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/login');
 
     $stateProvider
